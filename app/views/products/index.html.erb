@@ -1,7 +1,4 @@
-<div class="content">
-  <p><%= product.name %></p>
-  <p><%= product.price %>円</p>
-  <% product.images.each do |image| %>
-    <%= image_tag image.src.url %>
-  <% end %>
+<%= link_to '出品', new_product_path %><br>
+<div class="contents">
+  <%= render @products %>
 </div>
