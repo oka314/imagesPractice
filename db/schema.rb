@@ -27,4 +27,5 @@ ActiveRecord::Schema.define(version: 2020_03_26_085036) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "images", "products"
 end
