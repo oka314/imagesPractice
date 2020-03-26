@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load'), ()=> {
+$(document).on('turbolinks:load', ()=> {
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
       <input class="js-file" type="file"
@@ -12,6 +12,11 @@ $(document).on('turbolinks:load'), ()=> {
   $('#image-box').on('change','.js-file',function(e){
     $('#image-box').append(buildFileField(fileIndex[0]));
     fileIndex.shift();
-    
-  })
-}
+    fileIndex.push(fileIndex[fileIndex.length -1]+1)
+  });
+  $('#image-box').on('click','.js-remove',function(){
+    $(this).parent().remove();
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  });
+});
+
